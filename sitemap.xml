@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://mullerfs.github.io/</loc>
     <lastmod>2015-10-10T12:11:02-03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2015/10/10/sinaliza%C3%A7%C3%A3o-sip---o--come%C3%A7o-da-saga/</loc>
+    <loc>http://mullerfs.github.io/blog/2015/10/10/sinaliza%C3%A7%C3%A3o-sip---o--come%C3%A7o-da-saga/</loc>
     <lastmod>2015-10-10T12:11:02-03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2015/09/29/linux---sistema-de-arquivos/</loc>
+    <loc>http://mullerfs.github.io/blog/2015/09/29/linux---sistema-de-arquivos/</loc>
     <lastmod>2015-09-29T12:09:12-03:00</lastmod>
   </url>
   

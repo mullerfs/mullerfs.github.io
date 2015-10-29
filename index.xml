@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Documentação</title>
-    <link>http://localhost:1313/</link>
+    <link>http://mullerfs.github.io/</link>
     <description>Recent content on Documentação</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <lastBuildDate>Sat, 10 Oct 2015 12:11:02 -0300</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://mullerfs.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Sinalização SIP   O  COMEÇO DA SAGA</title>
-      <link>http://localhost:1313/blog/2015/10/10/sinaliza%C3%A7%C3%A3o-sip---o--come%C3%A7o-da-saga/</link>
+      <link>http://mullerfs.github.io/blog/2015/10/10/sinaliza%C3%A7%C3%A3o-sip---o--come%C3%A7o-da-saga/</link>
       <pubDate>Sat, 10 Oct 2015 12:11:02 -0300</pubDate>
       
-      <guid>http://localhost:1313/blog/2015/10/10/sinaliza%C3%A7%C3%A3o-sip---o--come%C3%A7o-da-saga/</guid>
+      <guid>http://mullerfs.github.io/blog/2015/10/10/sinaliza%C3%A7%C3%A3o-sip---o--come%C3%A7o-da-saga/</guid>
       <description>&lt;p&gt;Session Initiation Protocol (SIP) é um protocolo de sinalização de redes criado para estabelecer, modificar e terminar sessões de multimídia em uma rede IP.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -76,10 +76,10 @@
     
     <item>
       <title>Linux - Sistema de Arquivos</title>
-      <link>http://localhost:1313/blog/2015/09/29/linux---sistema-de-arquivos/</link>
+      <link>http://mullerfs.github.io/blog/2015/09/29/linux---sistema-de-arquivos/</link>
       <pubDate>Tue, 29 Sep 2015 12:09:12 -0300</pubDate>
       
-      <guid>http://localhost:1313/blog/2015/09/29/linux---sistema-de-arquivos/</guid>
+      <guid>http://mullerfs.github.io/blog/2015/09/29/linux---sistema-de-arquivos/</guid>
       <description>
 
 &lt;h1 id=&#34;conceitos-básicos:4e6bca090a67a8a79bb4183db98bf2ad&#34;&gt;CONCEITOS BÁSICOS&lt;/h1&gt;
