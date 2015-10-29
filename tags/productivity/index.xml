@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Productivity on Documentação</title>
+    <link>http://localhost:1313/tags/productivity/</link>
+    <description>Recent content in Productivity on Documentação</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Sat, 10 Oct 2015 12:11:02 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Sinalização SIP   O  COMEÇO DA SAGA</title>
+      <link>http://localhost:1313/blog/2015/10/10/sinaliza%C3%A7%C3%A3o-sip---o--come%C3%A7o-da-saga/</link>
+      <pubDate>Sat, 10 Oct 2015 12:11:02 -0300</pubDate>
+      
+      <guid>http://localhost:1313/blog/2015/10/10/sinaliza%C3%A7%C3%A3o-sip---o--come%C3%A7o-da-saga/</guid>
+      <description>&lt;p&gt;Session Initiation Protocol (SIP) é um protocolo de sinalização de redes criado para estabelecer, modificar e terminar sessões de multimídia em uma rede IP.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Em outras palavras: Um protocolo feito para fazer chamadas de voz e vídeo através da internet&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Um ditado popular diz que andorinha sozinha não faz verão e esse é o caso do SIP. Por si só ele não provê serviços, ou controla fluxos de mídia e nem sequer é capaz de fazer negociações de codecs, para uma solução completa de comunicação geralmente  é utilizado em conjunto com outros protocolos como os abaixo:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SIP:&lt;/strong&gt; Controle de chamada.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SDP:&lt;/strong&gt; Encapsulado dentro do SIP, serve principalment para fazer as negociações de codecs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RTP:&lt;/strong&gt; Usado para transportar fluxos de mídia&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Vamos fazer um pequeno exercício mental e totalmente estranho : ), assuma as seguintes condições:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Você é brasileiro e fala fluentemente Inglês e Espanhol&lt;/li&gt;
+&lt;li&gt;Você precisa conversar com o João que fala Alemão, Inglês e Chinês&lt;/li&gt;
+&lt;li&gt;Você não conhece o João&lt;/li&gt;
+&lt;li&gt;Você sabe onde o João mora&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Agora continuando a aventura nesse universo paralelo:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Você vai até a casa do João e bate na porta dele e diz &lt;em&gt;&lt;strong&gt;oi&lt;/strong&gt;&lt;/em&gt; em português, em inglês e espanhol.&lt;/li&gt;
+&lt;li&gt;João, tranquilamente apesar da sua esquisitice, responde &lt;em&gt;&lt;strong&gt;oi&lt;/strong&gt;&lt;/em&gt; em alemão, inglês e chinês.&lt;/li&gt;
+&lt;li&gt;Você percebe que João disse &lt;strong&gt;oi&lt;/strong&gt; em inglês e então começa uma conversa com João.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nesse exercicio, ir até a casa do João representa uma das funções da sinalização &lt;strong&gt;SIP&lt;/strong&gt; que curiosamente possui o nome INVITE. &lt;em&gt;(não vamos entrar no mérito de você ter se auto-convidado para a casa do João)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Dizer oi em três linguas diferentes para tentar descobrir qual lingua o João fala, ele responder com outras linguas e por fim você decidir que inglês é a linguagem comum entre vocês é uma &lt;code&gt;negociação de codec&lt;/code&gt; e é a tarefa do protocolo &lt;strong&gt;&lt;em&gt;SDP&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;O Ar foi o meio que você usou para passar o som da sua voz para se comunicar com o João, esse é o papel do protocolo &lt;strong&gt;RTP&lt;/strong&gt; e a sua voz saindo de sua boca e entrando nos ouvidos do João é o que chamamos de &lt;code&gt;fluxo de mídia&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;PS: Não venham reclamar que eu poderia utilizar inúmeros exemplos mais fáceis. 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Nos próximos posts eu irei abordar os seguintes assuntos:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Elementos que compõem o SIP (usuário, server, proxy)&lt;/li&gt;
+&lt;li&gt;Exemplo de uma chamada SIP&lt;/li&gt;
+&lt;li&gt;Funções definidas pelo SIP (invite, option, cancel, bye)&lt;/li&gt;
+&lt;li&gt;Códigos de resposta&lt;/li&gt;
+&lt;li&gt;Cabeçalho do SIP&lt;/li&gt;
+&lt;li&gt;Transferência, roteamentos e todos os outros conceitos básicos que você precisa saber&lt;/li&gt;
+&lt;li&gt;Codecs&lt;/li&gt;
+&lt;li&gt;PSTN&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Não esperem isso para amanhã e nem que virá em um único post. No mais, envie sugestões de assuntos &lt;del&gt;que provavelmente eu não saberei&lt;/del&gt; que terei o prazer de pesquisar para vocês.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

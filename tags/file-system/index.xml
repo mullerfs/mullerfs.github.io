@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>File System on Documentação</title>
+    <link>http://localhost:1313/tags/file-system/</link>
+    <description>Recent content in File System on Documentação</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Tue, 29 Sep 2015 12:09:12 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/file-system/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Linux - Sistema de Arquivos</title>
+      <link>http://localhost:1313/blog/2015/09/29/linux---sistema-de-arquivos/</link>
+      <pubDate>Tue, 29 Sep 2015 12:09:12 -0300</pubDate>
+      
+      <guid>http://localhost:1313/blog/2015/09/29/linux---sistema-de-arquivos/</guid>
+      <description>
+
+&lt;h1 id=&#34;conceitos-básicos:4e6bca090a67a8a79bb4183db98bf2ad&#34;&gt;CONCEITOS BÁSICOS&lt;/h1&gt;
+
+&lt;p&gt;Um sistema de arquivo é como se fosse o sistema de CEP de uma cidade. Ele mapeia
+o endereço onde um determinado bloco de informação se encontra no Disco, então o Sistema operacional
+ utilizada desse mapeamento para encontrar/armazenar os dados&lt;/p&gt;
+
+&lt;p&gt;Há vários tipos de Filesystem. Alguns para lidar com arquivos pequenos, outros
+com arquivos grandes, outros para lidarem com partições gigantescas,
+outros para deletar rapidamente do disco um arquivo, outros para comprimirem melhor as informações.&lt;/p&gt;
+
+&lt;p&gt;Exemplos de filesystem são: ReiserFS, XFS, EXT3, EXT4, NTFS&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Cada distribuição linux, dependendo da sua filosofia, utilizará um tipo diferente. Geralmente EXT3, EXT4&lt;/p&gt;
+
+&lt;h1 id=&#34;navegação-pelo-sistema-de-arquivo:4e6bca090a67a8a79bb4183db98bf2ad&#34;&gt;NAVEGAÇÃO PELO SISTEMA DE ARQUIVO&lt;/h1&gt;
+
+&lt;p&gt;Quando você entra em um sistema linux pelo terminal, a primeira coisa que verá
+é uma linha de comando parecida com a abaixo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;user@machine ~$ 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Por padrão, ao entrar em um terminal você começará pela pasta do usuário &lt;strong&gt;~&lt;/strong&gt;
+que nada mais é que uma abreviatura para o diretório &lt;strong&gt;/home/usuario/&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Observação: Em alguns casos muito específicos, o diretório de trabalho inicial
+poderá não ser o do usuário.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Você pode descobrir o diretório que se encontra atravês do comando &lt;code&gt;pwd&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;user@machine ~$ pwd
+/home/user
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Você pode descobrir os arquivos dentro do diretório através do comando list &lt;code&gt;ls&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;user@machine ~$ ls
+file1.txt file2.txt tmpdir
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;O comando &lt;code&gt;ls&lt;/code&gt; aceita vários argumentos, um dos mais utilizados é o &lt;code&gt;-l&lt;/code&gt; que provê as permissões,
+donos dos arquivos, tamanho e data&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;user@machine ~$ ls -l
+ -rw-r--r--  1 user user   2444 Mar 29  2012 file1.txt
+ -rw-r--r--  1 user user  32423 Jun 03  2011 file2.txt
+ drwxr-xr-x 15 user user   4096 Apr 22  2012 tmpdir
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Você não precisa se limitar a listar apenas os arquivos e diretórios da pasta atual.
+O ls aceita como argumento um endereço do sistema de arquivo&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;user@machine ~$ ls -l /
+ dr-xr-xr-x    2 root root  4096 Apr 26  2012 bin
+ dr-xr-xr-x    6 root root  1024 Sep 18 14:09 boot
+ drwxr-xr-x   19 root root  8660 Jan  8 16:57 dev
+ drwxr-xr-x  112 root root 12288 Feb  8 06:56 etc
+ drwxr-xr-x   67 root root  4096 Feb  7 19:43 home
+ dr-xr-xr-x   13 root root  4096 Mar  6  2012 lib
+ drwx------    2 root root 16384 Sep 18  2011 lost+found
+ drwxr-xr-x    5 root root  4096 Nov 19 18:53 mnt
+ drwxr-xr-x    4 root root  4096 Sep  4 15:15 opt
+ dr-xr-xr-x 1011 root root     0 Sep 23  2011 proc
+ dr-xr-x---   10 root root  4096 Jan 23 23:14 root
+ dr-xr-xr-x    2 root root 12288 Oct 16 22:23 sbin
+ drwxr-xr-x   13 root root     0 Sep 23  2011 sys
+ drwxrwxrwt   65 root root 16384 Feb 11 04:37 tmp
+ drwxr-xr-x   16 root root  4096 Feb  8  2012 usr
+ drwxr-xr-x   27 root root  4096 Nov  4 03:47 var
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;O sistema de direório do Linux segue um padrão de árvore, onde cada nível é delimitado pelo caracter &lt;code&gt;/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A pasta raiz do sistema (root directory) não possui um nome em especifico, sendo informada apenas pelo caracter &lt;code&gt;/&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Para mudar o diretório atual, utiliza o comando &lt;code&gt;cd&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;user@machine ~$ cd /tmp
+user@machine ~$ pwd
+ /tmp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Para encontrar um arquivo na sua estrutura de diretórios utiliza-se o comando &lt;code&gt;find&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;user@machine ~$ find /home/user -type f -name file3.txt
+ /home/user/tmpdir/file3.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;nomenclatura-de-discos-no-linux:4e6bca090a67a8a79bb4183db98bf2ad&#34;&gt;NOMENCLATURA DE DISCOS NO LINUX&lt;/h1&gt;
+
+&lt;p&gt;Discos no linux são geralmente nomeados como &lt;code&gt;/dev/sda&lt;/code&gt;, &lt;code&gt;/dev/sdb&lt;/code&gt;, etc.. onde a última letra (&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;, &amp;ldquo;c&amp;rdquo;..) representa a particição física do sistema sendo &lt;strong&gt;&lt;em&gt;a&lt;/em&gt;&lt;/strong&gt; o primeiro disco, &lt;strong&gt;&lt;em&gt;b&lt;/em&gt;&lt;/strong&gt; o segundo e assim por diante&lt;/p&gt;
+
+&lt;p&gt;Cada partição física pode ser dividia em partições lógicas. Veja o comando list abaixo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;-bash-4.1$ ls -la /dev/sd*
+ brw-rw---- 1 root disk 8, 0 Jul  6 16:51 /dev/sda
+ brw-rw---- 1 root disk 8, 1 Sep 18  2011 /dev/sda1
+ brw-rw---- 1 root disk 8, 2 Sep 18  2011 /dev/sda2
+ brw-rw---- 1 root disk 8, 3 Sep 18  2011 /dev/sda3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Os arquivos com números no final são uma representação de uma unidade lógica numa partição física.
+Por exemplo: O bloco &lt;code&gt;/dev/sda1&lt;/code&gt; representa a primeira partição lógica (1) do primeiro disco físico (a)&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Dependendo das necessidades da sua aplicação, ou do seu sistema operacional, a quantidade de partições lógicas podem variar.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Cada partição lógica possui um sistema de arquivo (xfs, ext3) e representa uma espaço alocado no disco rígido bem definido, com endereço inicial e final.&lt;/p&gt;
+
+&lt;h1 id=&#34;montando-sistemas-de-arquivos:4e6bca090a67a8a79bb4183db98bf2ad&#34;&gt;MONTANDO SISTEMAS DE ARQUIVOS&lt;/h1&gt;
+
+&lt;p&gt;Montar um sistema de arquivo é o ato de colocar a raiz de uma partição dentro de um diretório do Sistema Operacional. O comando &lt;code&gt;mount&lt;/code&gt; é o utilizado para montar partições no linux.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;root@machine # mount -t ext4 /dev/sdb1 /mnt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;O argumento &lt;code&gt;-t&lt;/code&gt; é utilizado para especificar o tipo de sistema de arquivo da partição e nos S.Os atuais está ficando cada vez menos necessário sua utilização. O próprio mount identifica o tipo de partição automaticamente.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;O comando mount acima diz que será montado a primeira partição lógica &lt;strong&gt;&lt;em&gt;1&lt;/em&gt;&lt;/strong&gt; do segundo disco físico &lt;strong&gt;&lt;em&gt;b&lt;/em&gt;&lt;/strong&gt; dentro do diretório &lt;strong&gt;&lt;em&gt;/mnt&lt;/em&gt;&lt;/strong&gt; do sistema operacional.&lt;/p&gt;
+
+&lt;h2 id=&#34;opções-de-montagem-do-filesystem:4e6bca090a67a8a79bb4183db98bf2ad&#34;&gt;OPÇÕES DE MONTAGEM DO FILESYSTEM&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;async:&lt;/strong&gt; Diz ao SO que as operações do sistema serão assicronas.\
+Na pratica, uma das consequências disso significa que o comando de cópia &lt;code&gt;cp&lt;/code&gt; sairá normalmente antes mesmo dos arquivos terem sido realocados na partição totalmente, o sistema &lt;strong&gt;persistirá&lt;/strong&gt; essas informações em algum momento após a operação. Devido a incerteza de quando o sistema persitirá as informações no disco, utiliza-se o comando &lt;code&gt;sync&lt;/code&gt; para forçar a escrita no disco das infromações&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;noatime:&lt;/strong&gt; Diz ao sistema há não modificar a hora de acesso (atime) para cada operação em um arquivo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ro:&lt;/strong&gt; Diz ao sistema para montar o sistema em somente leitura.\
+As vezes o Sistema operacional detecta que um &lt;strong&gt;block device&lt;/strong&gt; está começando a falhar e automaticamente o remonta em modo somente leitura para protegê-lo.\
+Geralmente essa situação traz vários problemas para o sistema que está funcionando, mas é uma medida para permitir que o máximo de informações sejam copiadas para outro lugar antes da partição falhar totalmente.
+Caso isso ocorra, pode ser verificado através do comando &lt;code&gt;dmesg&lt;/code&gt; por linhas parecidas com a abaixo:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;root@machine # dmesg
+ [26729.124569] Write(10): 2a 00 03 96 5a b0 00 00 08 00
+ [26729.124576] end_request: I/O error, dev sda, sector 60185264
+ [26729.125298] Buffer I/O error on device sda2, logical block 4593494
+ [26729.125986] lost page write due to I/O error on sda2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Essa mensagem indica fortemente que o disco &lt;code&gt;/dev/sda&lt;/code&gt; está morrendo.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;rw:&lt;/strong&gt; Diz ao sistema para montar o arquivo em modo de leitura-escrita&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;remount:&lt;/strong&gt; Diz ao sistema para remontar uma partição de arquivo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;root@machine ~# mount | grep boot
+ /dev/sda1 on /boot type ext3 (ro)
+root@machine ~# mount -o remount,rw /boot
+root@machine ~# mount | grep boot
+ /dev/sda1 on /boot type ext3 (rw)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;noexec:&lt;/strong&gt; Diz ao sistema para ignorar o bit de execução dos arquivos de uma partição. A partição montada com esse atributo nunca poderá contar arquivos executáveis&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;nosuid:&lt;/strong&gt; Diz ao sistema para ignorar os bits referentes à identificação de usuário. Geralmente recomendado para CD-ROMs, USB e discos da rede&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;elementos-em-um-filesystem:4e6bca090a67a8a79bb4183db98bf2ad&#34;&gt;ELEMENTOS EM UM FILESYSTEM&lt;/h1&gt;
+
+&lt;h2 id=&#34;inodes:4e6bca090a67a8a79bb4183db98bf2ad&#34;&gt;INODES&lt;/h2&gt;
+
+&lt;p&gt;Um Sistema de Arquivo é baseado em uma estrutura de dados chamados &lt;strong&gt;INODES&lt;/strong&gt; e não nos arquivos propriamente ditos.&lt;/p&gt;
+
+&lt;p&gt;INODES são na verdade &lt;strong&gt;METADADOS - &lt;em&gt;(dados que descrevem dados)&lt;/em&gt;&lt;/strong&gt; e representam uma identificação para o arquivo dentro da partição lógica. Essas  estruturas são  responsáveis por conter informações básicas sobre seus arquivos e pastas.&lt;/p&gt;
+
+&lt;p&gt;Os atributos dos inodes são:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Tamanho do arquivo em bytes&lt;/li&gt;
+&lt;li&gt;O device id.&lt;/li&gt;
+&lt;li&gt;User ID e dono do arquivo.&lt;/li&gt;
+&lt;li&gt;Group ID do arquivo.&lt;/li&gt;
+&lt;li&gt;Os modos de  permissões.&lt;/li&gt;
+&lt;li&gt;Atributos adicionais de sistema e usuário. Ex: Append only, ACL&lt;/li&gt;
+&lt;li&gt;Timestamps de acesso (atime), modificação (mtime) e criação (ctime).&lt;/li&gt;
+&lt;li&gt;Contagem de Hardlinks apontando para o mesmo inode.&lt;/li&gt;
+&lt;li&gt;Ponteiros para o conteúdo do arquivo que ele representa.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ao ler qualquer arquivo ou diretório, o Kernel trata de ler primeiramente o INODE do arquivo, para depois chegar ao dito cujo. Ao ler essa estrutura, são checadas as permissões e em caso de negada, é retornada a famosa mensagem de “Permission denied”, caso contrário, o procedimento segue normalmente.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Curiosidade: Ao ler uma partição que diz haver 16GB, porém acusa apenas 14,8GB. A diferença são os espaços consumidos para os inodes.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;devices:4e6bca090a67a8a79bb4183db98bf2ad&#34;&gt;DEVICES&lt;/h2&gt;
+
+&lt;p&gt;Um dispositivo (device) são arquivos especiais localizados em &lt;code&gt;/dev&lt;/code&gt; e representam interfaces para elementos de hardware/lógicos do sistema.&lt;/p&gt;
+
+&lt;p&gt;Por exemplo, cada impressora, cada partição física, cada porta usb, cada placa de vídeo, de rede, etc&amp;hellip; possuem arquivos que os represetam por um device dentro da pasta &lt;code&gt;/dev/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Os dispositivos podem ser baseados em &lt;code&gt;Caracter&lt;/code&gt; e em &lt;code&gt;Blocos&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Caracter:&lt;/strong&gt;  Permitem acesso direto e sem buffer ao dispositivo. Não necessariamente permitem Leitura e Escrita. Também são conhecidos por &lt;strong&gt;&lt;em&gt;Raw Devices&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blocos:&lt;/strong&gt; Permitem acesso bufferizado ao dispositivo de modo que o hardware em si não fica vísivel para acesso direto.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;pseudo-devices:4e6bca090a67a8a79bb4183db98bf2ad&#34;&gt;PSEUDO-DEVICES&lt;/h2&gt;
+
+&lt;p&gt;Representam dispositivos que não possuem um correspondente físico do sistema. Estes são utilizados como &lt;em&gt;&lt;strong&gt;dispositivos funcionais&lt;/strong&gt;&lt;/em&gt;. Os pseudo-devices (baseados em caracter) mais utilizados são:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;/dev/null&lt;/strong&gt; – produz nenhum output, descarta qualquer input&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/dev/zero&lt;/strong&gt; – aceita e descarta qualquer input. Produz um stream continuo of NULL bytes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/dev/full&lt;/strong&gt; – produz um fluxo continuo  de NUL (valores zerados) bytes quando lido, retorna disco cheio quando usado para escrita&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/dev/random&lt;/strong&gt;  e &lt;strong&gt;/dev/urandom&lt;/strong&gt; – produz um fluxo de tamanho variável de números pseudo-aleatórios.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;fontes:4e6bca090a67a8a79bb4183db98bf2ad&#34;&gt;Fontes&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.opsschool.org&#34;&gt;http://www.opsschool.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
