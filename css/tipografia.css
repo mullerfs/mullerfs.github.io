@@ -1,0 +1,13 @@
+.destaque_01 {
+  color: #d61347;
+  font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  font-feature-settings: "lnum";
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -1.995px;
+  line-height: 60px;
+  margin-bottom: 30px;
+  overflow-wrap: break-word;
+  text-align: left;
+  word-break: break-word;
+}

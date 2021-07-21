@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Execute Menos Software</title>
+    <url>/2021/03/16/Execute-Menos-Software/</url>
+    <content><![CDATA[<p>Se tem algo que aprendi nestes anos suportando e criando produtos de tecnologia é que menos é mais.</p>
+<p>Aqui vai algumas dicas valiosas que funcionaram para mim:</p>
+<ul>
+<li>Se for desenvolver, escolha tecnologias padrões de mercado</li>
+<li>Não caia na armadilha de achar que tecnologias de código aberto, ou soluções on premise significam “sem custo” ou “mais barato”</li>
+<li>Terceirize atividades que não agregam valor para o produto</li>
+</ul>
+<p class="destaque_01">Se for desenvolver, escolha tecnologias padrões de mercado</p>
+
+<p>Imagino que isso se repita em todos os setores de produção, mas a indústria de Telecomunicações em particular tem aversão a “última versão de software”. Ninguém quer pagar o pato de ser o primeiro a descobrir um novo bug enquanto há uma fila de clientes reclamando em todos os canais de atendimento.</p>
+<p>Não me entenda mal, usar novas tecnologias é bastante empolgante e muitas das vezes pode até significar diferenciais para seu produto, mas softwares e tecnologias bem consolidados que todos estão usando é uma ótima aposta, terá ótimo suporte de empresas e fóruns no mercado e não te fará correr o risco de ser o primeiro a encontrar um bug que ninguém mais resolveu.</p>
+<p class="destaque_01">Código Aberto nem sempre é “sem custo” e On Premise nem sempre é “mais barato”</p>
+
+<p>Então você fez o trabalho de casa, colocou suas opções numa matriz de decisão e escolheu um software aberto para implementar certas funcionalidades no seu produto, até levou em conta minha dica anterior e escolheu uma versão estável.</p>
+<p>Você está levando em conta o custo de operar por si mesmo esse software?</p>
+<p>Existe um abismo entre provar um conceito (PoC) para o cliente utilizando ferramentas Opensource e desenvolvimento interno com dois estagiários, 2 desenvolvedores full-stack, 1 especialista em sistemas Operacionais, 1 em redes de computadores é criar um ambiente de produção que esteja pronto para a carga de trabalho, com alta disponibilidade, segurança, em conformidade com LGPD, gerenciamento de Alarmes.</p>
+<p>Muitas das vezes desenvolver internamente o produto requererá também atividades laterais como:</p>
+<ul>
+<li>  Criação de uma equipe de Operação e Suporte em tempo integral para monitorar a saúde do seu sistema</li>
+<li>   Manter o conhecimento original do desenvolvimento vivo entre sua equipe. O mercado de TI rotaciona muito as cadeiras, o conhecimento do time que implantou aquele software de código aberto persistiu a informação nas suas ferramentas de gestão de conhecimento.</li>
+<li>   E conforme o produto cresce e ganha escala, problemas acontecem, bugs aparecem. Quando você menos esperar verá que seu Squad de produto estará afogado em resolver problemas e pouco envolvido em desenvolver novas funcionalidades e novos valores para o produto</li>
+</ul>
+<p class="destaque_01">Terceirize atividades que não agregam valor para o produto</p>
+
+<p>Se você chegou até aqui, essa dica talvez é chover no molhado, mas não quero ficar com a consciência pesada de não ter avisado.</p>
+<p>Durante o processo de criação de seus produtos e conforme sua empresa vai evoluindo de uma Startup para uma Empresa de crescimento e por fim alcançando uma Empresa consolidada com um produto forte pode ser que seu time de tecnologia se perca pelo caminho.</p>
+<p>Certifique-se que seu time não esteja em alguma dessas armadilhas:</p>
+<ul>
+<li>   O Backlog de atividades só possui Correções de Bugs e nenhuma Funcionalidade nova, que agregue valor ao produto</li>
+<li>   O Time passa mais tempo preocupado em implementar uma esteira de CI/CD perfeita que pensando em como entregar alguma coisa que o Cliente goste.</li>
+<li>   O time passa mais tempo preocupado em <em>“instalar, manter e garantir”</em> do que em <em>“evoluir, criar e inovar”</em></li>
+</ul>
+<p>Não me leve a mal, tudo isso é importante, e provavelmente consequência do desenvolvimento interno, mas <strong>isso é atividade indiferente para o seu Cliente</strong>. Você está mantendo um time de vários Engenheiros e Desenvolvedores na sua estrutura <del>que deveria ser enxuta para criação do produto, depois falo sobre isso noutro tópico</del> ocupados com atividades irrelevantes para aumentar o Valor percebido para os Stakeholders e os Benefícios para os clientes.</p>
+<p>Terceirize esses serviços!</p>
+<ul>
+<li>   Terceirize a administração dos ambientes para empresas especialistas em suporte de código aberto</li>
+<li>   Terceirize até mesmo o desenvolvimento de funcionalidades para empresas especialistas em Fábrica de Software.</li>
+</ul>
+<p>Foque seu time de alto desempenho apenas em AUMENTAR O VALOR do seu produto.</p>
+<p>Espero que tenham gostado deste post e comentem suas experiência neste assunto.</p>
+]]></content>
+      <categories>
+        <category>Desenvolvimento de Produto</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Preparando um ambiente Docker para desenvolvimento em Flask</title>
+    <url>/2021/02/20/Construcao-de-uma-Aplicacao-Web-completa-parte01/</url>
+    <content><![CDATA[<h1 id="Construindo-a-estrutura-minima-do-projeto"><a href="#Construindo-a-estrutura-minima-do-projeto" class="headerlink" title="Construindo a estrutura mínima do projeto"></a>Construindo a estrutura mínima do projeto</h1><p>Vamos construir a estrutura mínima para um projeto python com Flask</p>
+<p>Crie a pasta do seu projeto</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir ./formula_magica_app</span><br><span class="line"><span class="built_in">cd</span> ./formula_magica_app</span><br></pre></td></tr></table></figure>
+<p>Crie um Ambiente virtual Python para seu projeto.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3.6 -m venv venv</span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br></pre></td></tr></table></figure>
+<div class="note info"><p>Não precisa criar o Ambiente virtual para um projeto em Docker. Eu apenas o Faço para facilitar o <code>pip freeze</code></p>
+</div>
+
+<p>Neste ponto gosto de criar o arquivo base de requisitos do Python já com a dependência do Flask instalada</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install flask</span><br><span class="line">pip install gevent</span><br><span class="line">pip freeze &gt;requirements.txt</span><br></pre></td></tr></table></figure>
+<div class="note primary"><h2 id="Sobre-o-Flask"><a href="#Sobre-o-Flask" class="headerlink" title="Sobre o Flask"></a>Sobre o Flask</h2><p>Para projetos rápidos e de aprendizado gosto de usar o Framework Flask devido a sua facilidade de uso e por ser “direta e reta”. </p>
+<p>É  um pacote extremamente leve para rodar, sem uma estrutura de diretório complexa e ao mesmo tempo possui muitas extensões e uma comunidade forte.</p>
+<p>Outra framework muito utilizada é o Django e confesso que para um projeto bem delimitado ele oferece ferramentas melhores integradas a framework, já vem com um painel admin, bibliotecas para bancos de dados, uma estrutura pré-definida de diretório. Mas a simplicidade é exatamente a beleza do Flask, a comunidade diz que o Flask é uma framework <strong>“unopinionated”</strong>, ou seja, ele te permite decidir como implementar sua aplicação sem ficar no meio do caminho.</p>
+<p>Existem diversas outras Web Frameworks para python e você pode conferi-las <a href="https://wiki.python.org/moin/WebFrameworks">aqui</a>.</p>
+</div>
+
+<h2 id="Criando-os-arquivos-iniciais-do-Projeto"><a href="#Criando-os-arquivos-iniciais-do-Projeto" class="headerlink" title="Criando os arquivos iniciais do Projeto"></a>Criando os arquivos iniciais do Projeto</h2><p>Vamos criar um arquivo de configuração para a nossa aplicação na pasta do projeto já com classes que representam ambientes de produção e desenvolvimento.</p>
+<figure class="highlight python"><figcaption><span>./config.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span>(<span class="params"><span class="built_in">object</span></span>):</span> </span><br><span class="line">    <span class="keyword">pass</span> </span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProdConfig</span>(<span class="params">Config</span>):</span> </span><br><span class="line">    <span class="keyword">pass</span> </span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DevConfig</span>(<span class="params">Config</span>):</span> </span><br><span class="line">    DEBUG = <span class="literal">True</span> </span><br></pre></td></tr></table></figure>
+<p>E agora o arquivo da aplicação.</p>
+<figure class="highlight python"><figcaption><span>./main.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> gevent.pywsgi <span class="keyword">import</span> WSGIServer</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask </span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> DevConfig </span><br><span class="line"> </span><br><span class="line">app = Flask(__name__) </span><br><span class="line">app.config.from_object(DevConfig) </span><br><span class="line"> </span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>) </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">home</span>():</span> </span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&lt;h1&gt;Olá mundo pequeno!&lt;/h1&gt;&#x27;</span> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>: </span><br><span class="line">    http_server = WSGIServer((<span class="string">&#x27;&#x27;</span>, <span class="number">5000</span>), app)</span><br><span class="line">    http_server.serve_forever() </span><br></pre></td></tr></table></figure>
+<p>Já já vamos colocar esse código para rodar, aguenta aí.</p>
+<h2 id="Configurando-o-Docker"><a href="#Configurando-o-Docker" class="headerlink" title="Configurando o  Docker"></a>Configurando o  Docker</h2><p>Crie um Dockerfile na pasta do projeto</p>
+<figure class="highlight dockerfile"><figcaption><span>./Dockerfile</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.6</span>.<span class="number">5</span></span><br><span class="line"><span class="comment"># Criando uma pasta para a aplicação</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Copiando arquivos da pasta local para dentro do Docker</span></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> . /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Instalando as dependências dentro do Docker</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Rodando a aplicação</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;main.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+<p>Nesta altura do campeonato, sua estrutura de diretório deve ser assim:</p>
+<p><img data-src="/images/pasted-0.png" alt="upload successful"></p>
+<div class="note primary"><h2 id="Por-que-Docker"><a href="#Por-que-Docker" class="headerlink" title="Por que Docker?"></a>Por que Docker?</h2><p>Nossa aplicação precisará rodar a aplicação Web, mas não para por ai. No fim deste artigo também precisaremos de um sistema de banco de dados, de um sistema de autenticação e projetos reais muitas vezes rodam mais de um servidor web, enfim, você pegou a idéia.</p>
+<p>Dado essa pilha (“stack”) de aplicações, uma forma simples de defini-lá e executá-la e através de sistemas de containers. E é ai que o Docker entra na jogada.</p>
+<p>Com o Docker, você define como instalar sua aplicação e depois pode facilmente compartilhar o script com seu time e até mesmo subir para produção de forma rápida e ligeira.</p>
+</div>
+
+<h2 id="Rodando-a-Aplicacao"><a href="#Rodando-a-Aplicacao" class="headerlink" title="Rodando a Aplicação"></a>Rodando a Aplicação</h2><p>Bora colocar a aplicação para rodar.</p>
+<p>Construa sua imagem do Docker</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build -t formula_magica .</span><br></pre></td></tr></table></figure>
+<p>Rode o container</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name fm -p 5000:5000 formula_magica </span><br></pre></td></tr></table></figure>
+<p>Agora só acessar sua aplicação em: <a href="http://localhost:5000/">http://localhost:5000</a></p>
+<div class="note info"><h3 id="Diquinha-para-facilitar-o-Docker-Build"><a href="#Diquinha-para-facilitar-o-Docker-Build" class="headerlink" title="Diquinha para facilitar o Docker Build"></a>Diquinha para facilitar o Docker Build</h3><p>Depois de rodar várias e várias vezes o comando, tu notará que o <code>docker build</code> reinstala toda vez os requirements.txt do pip.</p>
+<p>Para evitar isso eu gero uma tag local após saber que não modificarei mais o requirements.txt</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker tag formula_magica <span class="built_in">local</span>/formula_magica</span><br></pre></td></tr></table></figure>
+<p>E modifico o Dockerfile para isso</p>
+<figure class="highlight dockerfile"><figcaption><span>./Dockerfile</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> local/formula_magica</span><br><span class="line"><span class="comment"># Criando uma pasta para a aplicação</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Copiando arquivos da pasta local para dentro do Docker</span></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> . /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Instalando as dependências dentro do Docker</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Rodando a aplicação</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;main.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+<p>Facilita muito o serviço!</p>
+</div>]]></content>
+      <categories>
+        <category>Arquitetura de Software</category>
+        <category>Desenvolvimento Web</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>python</tag>
+        <tag>oauth</tag>
+      </tags>
+  </entry>
+</search>
